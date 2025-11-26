@@ -1,0 +1,31 @@
+name: CI Pipeline
+
+on:
+  pull_request:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ---- Terraform validate ----
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.7.4
+
+      - run: terraform -chdir=terraform init
+      - run: terraform -chdir=terraform validate
+
+      # ---- Docker build test ----
+      - name: Docker build test
+        run: docker build -t simple-app ./app
+
+      # ---- Kubernetes YAML lint ----
+      - name: K8s lint using KICS
+        uses: checkmarx/kics-action@v1.7
+        with:
+          path: k8s/
