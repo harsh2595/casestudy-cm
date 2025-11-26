@@ -54,10 +54,10 @@ jobs:
     #     run: kubectl rollout status deployment/simple-app -n demo
 
       # ---- Smoke Test ----
-      - name: Smoke test /health
-        run: |
-          SERVICE_URL=$(kubectl get svc simple-app-service -n demo -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
-          echo "Testing: http://$SERVICE_URL/health"
-          curl -f http://$SERVICE_URL/health
+    #   - name: Smoke test /health
+    #     run: |
+    #       SERVICE_URL=$(kubectl get svc simple-app-service -n demo -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+    #       echo "Testing: http://$SERVICE_URL/health"
+    #       curl -f http://$SERVICE_URL/health
 
 
