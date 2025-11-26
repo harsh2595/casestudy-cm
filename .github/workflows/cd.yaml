@@ -47,7 +47,7 @@ jobs:
 
       # ---- Deploy to Kubernetes ----
       - name: Deploy manifests
-        run: kubectl apply -k k8s/
+        run: kubectl apply -k Project/k8s/
 
       # ---- Rollout Verification ----
       - name: Rollout status
@@ -59,3 +59,4 @@ jobs:
           SERVICE_URL=$(kubectl get svc simple-app-service -n demo -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
           echo "Testing: http://$SERVICE_URL/health"
           curl -f http://$SERVICE_URL/health
+
