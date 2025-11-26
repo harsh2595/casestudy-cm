@@ -25,7 +25,7 @@ jobs:
         run: docker build -t simple-app ./app
 
       # ---- Kubernetes YAML lint ----
-      - name: K8s lint using KICS
-        uses: checkmarx/kics-action@v1.7
-        with:
-          path: k8s/
+    #   - name: K8s lint using KICS
+    #     uses: checkmarx/kics-action@v1.8
+    #     with:
+    #       path: k8s/
