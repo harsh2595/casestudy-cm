@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: simple-app
-          image: <DOCKER_USERNAME>/simple-app:latest
+          image: harshkashyap96/simple-app:latest
           ports:
             - containerPort: 5000
           livenessProbe:
