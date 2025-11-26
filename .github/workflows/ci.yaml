@@ -26,6 +26,6 @@ jobs:
 
       # ---- Kubernetes YAML lint ----
       - name: K8s lint using KICS
-        uses: checkmarx/kics-action@v1.7
+        uses: checkmarx/kics-action@v1.8
         with:
           path: k8s/
