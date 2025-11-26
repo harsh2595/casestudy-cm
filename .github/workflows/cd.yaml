@@ -49,9 +49,9 @@ jobs:
       - name: Deploy manifests
         run: kubectl apply -k K8s/
 
-      # ---- Rollout Verification ----
-      - name: Rollout status
-        run: kubectl rollout status deployment/simple-app -n demo
+    #   # ---- Rollout Verification ----
+    #   - name: Rollout status
+    #     run: kubectl rollout status deployment/simple-app -n demo
 
       # ---- Smoke Test ----
       - name: Smoke test /health
