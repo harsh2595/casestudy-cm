@@ -47,7 +47,7 @@ jobs:
 
       # ---- Deploy to Kubernetes ----
       - name: Deploy manifests
-        run: kubectl apply -k k8s/
+        run: kubectl apply -k Project/k8s/
 
       # ---- Rollout Verification ----
       - name: Rollout status
